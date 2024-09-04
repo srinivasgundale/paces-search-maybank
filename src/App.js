@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { Provider } from "react-redux";
+import store from "./redux/store";
+import SearchBox from "./components/SearchBox";
+import Map from "./components/Map";
+import ResultsList from "./components/ResultsList";
+import { Layout } from "antd";
 
-function App() {
+const { Header, Content } = Layout;
+
+const App = () => {
+  const [selectedLocation, setSelectedLocation] = useState(null);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <Layout>
+        <Header style={{ color: "white" }}>Google Place Search</Header>
+        <Content style={{ padding: "20px" }}>
+          <SearchBox />
+          <ResultsList
+            onSelectResult={(location) => setSelectedLocation(location)}
+          />
+          <Map selectedLocation={selectedLocation} />
+        </Content>
+      </Layout>
+    </Provider>
   );
-}
+};
 
 export default App;
