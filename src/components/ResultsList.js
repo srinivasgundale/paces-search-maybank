@@ -17,12 +17,13 @@
 // export default ResultsList;
 
 import React from "react";
-import { List } from "antd";
+import { List, Spin, Alert } from "antd";
 import { useSelector } from "react-redux";
 
 const ResultsList = ({ onSelectResult }) => {
-  const results = useSelector((state) => state.search.results);
-
+  const { results, loading, error } = useSelector((state) => state.search);
+  if (loading) return <Spin tip="Loading results..." />;
+  if (error) return <Alert message={error} type="error" />;
   const handleItemClick = async (item) => {
     console.log("🚀 ~ handleItemClick ~ item:", item);
 

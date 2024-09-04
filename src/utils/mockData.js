@@ -1,13 +1,27 @@
 // mockData.js
+
 export const mockPlaces = [
   {
-    name: "Place A",
-    address: "123 Street",
-    location: { lat: 37.7749, lng: -122.4194 },
+    description: "Kuala Lumpur, Malaysia",
+    place_id: "mock_kl_123",
+    structured_formatting: {
+      main_text: "Kuala Lumpur",
+      secondary_text: "Malaysia",
+    },
+    geometry: {
+      location: { lat: 3.139, lng: 101.6869 },
+    },
   },
   {
-    name: "Place B",
-    address: "456 Avenue",
-    location: { lat: 34.0522, lng: -118.2437 },
+    description: "New York, USA",
+    place_id: "mock_ny_456",
+    structured_formatting: {
+      main_text: "New York",
+      secondary_text: "USA",
+    },
+    geometry: {
+      location: { lat: 40.7128, lng: -74.006 },
+    },
   },
+  // Add more mock places as needed
 ];

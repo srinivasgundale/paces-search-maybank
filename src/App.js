@@ -4,6 +4,7 @@ import store from "./redux/store";
 import SearchBox from "./components/SearchBox";
 import Map from "./components/Map";
 import ResultsList from "./components/ResultsList";
+import CurrentQuery from "./components/CurrentQuery";
 import { Layout } from "antd";
 
 const { Header, Content } = Layout;
@@ -16,6 +17,7 @@ const App = () => {
         <Header style={{ color: "white" }}>Google Place Search</Header>
         <Content style={{ padding: "20px" }}>
           <SearchBox />
+          <CurrentQuery />
           <ResultsList
             onSelectResult={(location) => setSelectedLocation(location)}
           />

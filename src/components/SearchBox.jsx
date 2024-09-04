@@ -41,6 +41,8 @@
 
 // export default SearchBox;
 
+// components/SearchBox.js
+
 import React from "react";
 import { Input } from "antd";
 import { useSearch } from "./hooks/useSearch";
