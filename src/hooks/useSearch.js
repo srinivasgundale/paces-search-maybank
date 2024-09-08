@@ -1,37 +1,7 @@
-// hooks/useSearch.js
-
-// import { useEffect } from "react";
-// import { useSelector, useDispatch } from "react-redux";
-// import { fetchSearchResults } from "./../../redux/actions";
-// import { useDebounce } from "./useDebounce";
-
-// export const useSearch = (debounceDelay = 5000) => {
-//   const query = useSelector((state) => state.search.query);
-//   const dispatch = useDispatch();
-
-//   const debouncedQuery = useDebounce(query, debounceDelay);
-
-//   useEffect(() => {
-//     if (debouncedQuery) {
-//       dispatch(fetchSearchResults(debouncedQuery));
-//     }
-//   }, [debouncedQuery, dispatch]);
-
-//   const setQuery = (value) => {
-//     dispatch({ type: "SET_SEARCH_QUERY", payload: value });
-//   };
-
-//   return {
-//     query,
-//     setQuery,
-//   };
-// };
-
-// hooks/useSearch.js
 
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchSearchResults } from "../../redux/actions";
+import { fetchSearchResults } from "./../redux/actions/search";
 import { useDebounce } from "./useDebounce";
 
 export const useSearch = (debounceDelay = 500) => {

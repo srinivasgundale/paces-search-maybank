@@ -1,21 +1,3 @@
-// import React from "react";
-// import { List } from "antd";
-// import { useSelector } from "react-redux";
-
-// const ResultsList = () => {
-//   const results = useSelector((state) => state.search.results);
-
-//   return (
-//     <List
-//       bordered
-//       dataSource={results}
-//       renderItem={(item) => <List.Item>{item.description}</List.Item>}
-//     />
-//   );
-// };
-
-// export default ResultsList;
-
 import React from "react";
 import { List, Spin, Alert } from "antd";
 import { useSelector } from "react-redux";

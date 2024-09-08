@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, combineReducers } from "redux";
 import { thunk } from "redux-thunk"; // Update this line
-import searchReducer from "./searchReducer";
+import searchReducer from "./reducers/search";
 
 const rootReducer = combineReducers({
   search: searchReducer,
