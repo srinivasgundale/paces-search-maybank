@@ -31,15 +31,19 @@ const ResultsList = ({ onSelectResult }) => {
   };
 
   return (
+    <>
+    <p>Click on a result to view it on the map.</p>
     <List
       bordered
       dataSource={results}
+      style={{ cursor: 'pointer' }}
       renderItem={(item) => (
         <List.Item onClick={() => handleItemClick(item)}>
           {item.description}
         </List.Item>
       )}
     />
+    </>
   );
 };
 

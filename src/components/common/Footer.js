@@ -1,12 +1,31 @@
 import React from 'react';
-import { Layout } from 'antd';
+import { Layout, Typography, Button } from 'antd';
+import { ArrowUpOutlined } from '@ant-design/icons';
+import './AppFooter.css'; // Import your CSS file for additional styling
 
 const { Footer } = Layout;
+const { Text } = Typography;
 
 const AppFooter = () => {
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <Footer style={{ textAlign: 'center' }}>
-      @{new Date().getFullYear()} Your Company Name
+    <Footer className="footer">
+      <div className="footer-content">
+        <div className="footer-text">
+          © {new Date().getFullYear()} . All Rights Reserved.
+        </div>
+        <Button 
+          className="scroll-to-top" 
+          icon={<ArrowUpOutlined />} 
+          onClick={handleScrollToTop}
+        >
+          Back to Top
+        </Button>
+      </div>
+      <div className="footer-line" />
     </Footer>
   );
 };
