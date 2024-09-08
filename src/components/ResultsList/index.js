@@ -12,11 +12,6 @@ const ResultsList = ({ onSelectResult }) => {
     const placeId = item.place_id;
     if (placeId) {
       try {
-        // const apiKey = process.env.REACT_APP_GOOGLE_API_KEY;
-        // const response = await fetch(
-        //   `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&key=${apiKey}`
-        // );
-        // const data = await response.json();
         const data = await getPlaceDetails(placeId);
         console.log("🚀 ~ handleItemClick ~ place details:", data);
 
