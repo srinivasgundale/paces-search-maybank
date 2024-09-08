@@ -1,7 +1,7 @@
 import React from "react";
 import { List, Spin, Alert } from "antd";
 import { useSelector } from "react-redux";
-
+import {  getPlaceDetails } from "../../services/googlePlacesService";
 const ResultsList = ({ onSelectResult }) => {
   const { results, loading, error } = useSelector((state) => state.search);
   if (loading) return <Spin tip="Loading results..." />;
@@ -12,11 +12,12 @@ const ResultsList = ({ onSelectResult }) => {
     const placeId = item.place_id;
     if (placeId) {
       try {
-        const apiKey = process.env.REACT_APP_GOOGLE_API_KEY;
-        const response = await fetch(
-          `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&key=${apiKey}`
-        );
-        const data = await response.json();
+        // const apiKey = process.env.REACT_APP_GOOGLE_API_KEY;
+        // const response = await fetch(
+        //   `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&key=${apiKey}`
+        // );
+        // const data = await response.json();
+        const data = await getPlaceDetails(placeId);
         console.log("🚀 ~ handleItemClick ~ place details:", data);
 
         if (data && data.result && data.result.geometry) {

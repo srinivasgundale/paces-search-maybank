@@ -1,6 +1,5 @@
-import { getPlaceSuggestions } from "../../services/googlePlaces";
 import { mockPlaces } from "../../utils/mockData";
-
+import { getPlaceSuggestions } from "../../services/googlePlacesService";
 export const setSearchResults = (results) => ({
   type: "SET_SEARCH_RESULTS",
   payload: results,
@@ -18,7 +17,9 @@ export const fetchSearchResults = (query) => async (dispatch) => {
   dispatch(setSearchQuery(query));
   try {
     const results = await getPlaceSuggestions(query);
-    dispatch(setSearchResults(results));
+    console.log("🚀 ~ fetchSearchResults ~ results:", results)
+    
+    dispatch(setSearchResults(results.predictions));
   } catch (error) {
     // If Google Places API fails, use mock data
     console.error("Google Places API failed, using mock data.", error);
