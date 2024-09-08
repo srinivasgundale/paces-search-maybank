@@ -8,7 +8,7 @@ const AppHeader = () => {
   return (
     <Header className="header">
       <div className="logo" style={{ float: 'left', color: '#fff', fontSize: '24px' }}>
-        YourLogo
+        React App
       </div>
       <Navbar />
     </Header>

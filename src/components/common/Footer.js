@@ -1,10 +1,9 @@
 import React from 'react';
-import { Layout, Typography, Button } from 'antd';
+import { Layout,  Button } from 'antd';
 import { ArrowUpOutlined } from '@ant-design/icons';
 import './AppFooter.css'; // Import your CSS file for additional styling
 
 const { Footer } = Layout;
-const { Text } = Typography;
 
 const AppFooter = () => {
   const handleScrollToTop = () => {
