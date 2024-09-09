@@ -4,6 +4,7 @@ const initialState = {
     results: [],
     error: null,
     loading: false,
+    selectedResults: [], 
   };
   
   const searchReducer = (state = initialState, action) => {
@@ -28,6 +29,12 @@ const initialState = {
           error: action.payload,
           loading: false,
         };
+      case 'ADD_SELECTED_RESULT':
+        return {
+          ...state,
+          selectedResults: [...state.selectedResults, action.payload],
+        };
+        
       default:
         return state;
     }

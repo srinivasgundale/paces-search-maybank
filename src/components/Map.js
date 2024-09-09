@@ -6,8 +6,10 @@ const mapContainerStyle = {
   height: "400px",
 };
 
-const Map = ({ selectedLocation }) => {
-  const center = selectedLocation || { lat: -34.397, lng: 150.644 };
+const Map = ({ selectedLocations }) => {
+  const center = selectedLocations.length
+    ? selectedLocations[0]
+    : { lat: -34.397, lng: 150.644 };
 
   return (
     <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_API_KEY}>
@@ -16,14 +18,15 @@ const Map = ({ selectedLocation }) => {
         center={center}
         zoom={10}
       >
-        {selectedLocation && (
+        {selectedLocations.map((location, index) => (
           <Marker
+            key={index}
             position={{
-              lat: selectedLocation.lat,
-              lng: selectedLocation.lng,
+              lat: location.lat,
+              lng: location.lng,
             }}
           />
-        )}
+        ))}
       </GoogleMap>
     </LoadScript>
   );

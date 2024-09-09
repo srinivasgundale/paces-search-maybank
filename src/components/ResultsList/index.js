@@ -8,7 +8,7 @@ const ResultsList = ({ onSelectResult }) => {
   if (error) return <Alert message={error} type="error" />;
   const handleItemClick = async (item) => {
     console.log("🚀 ~ handleItemClick ~ item:", item);
-
+    const locarionName = item.description;
     const placeId = item.place_id;
     if (placeId) {
       try {
@@ -16,7 +16,11 @@ const ResultsList = ({ onSelectResult }) => {
         console.log("🚀 ~ handleItemClick ~ place details:", data);
 
         if (data && data.result && data.result.geometry) {
-          const location = data.result.geometry.location;
+          let loc = data.result.geometry.location;
+          const location = {
+            location: loc,
+            description: locarionName
+          }
           console.log("🚀 ~ handleItemClick ~ location:", location);
           onSelectResult(location);
         } else {
@@ -32,7 +36,7 @@ const ResultsList = ({ onSelectResult }) => {
 
   return (
     <>
-    <p>Click on a result to view it on the map.</p>
+    {/* <p>Click on a result to view it on the map.</p> */}
     <List
       bordered
       dataSource={results}

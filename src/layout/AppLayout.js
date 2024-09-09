@@ -11,7 +11,7 @@ const AppLayout = () => {
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Header />
-      <Content style={{ padding: '0 50px', marginTop: 64 }}>
+      <Content >
         <div style={{ padding: 24, minHeight: 380 }}>
           <Outlet />
         </div>
