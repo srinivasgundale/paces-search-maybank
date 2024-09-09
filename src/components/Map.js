@@ -8,7 +8,7 @@ const mapContainerStyle = {
 
 const Map = ({ selectedLocations }) => {
   const center = selectedLocations.length
-    ? selectedLocations[0]
+    ? selectedLocations.at(-1)
     : { lat: -34.397, lng: 150.644 };
 
   return (

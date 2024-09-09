@@ -10,9 +10,10 @@ const ResultsList = ({ onSelectResult }) => {
     console.log("🚀 ~ handleItemClick ~ item:", item);
     const locarionName = item.description;
     const placeId = item.place_id;
+    let data = null;
     if (placeId) {
       try {
-        const data = await getPlaceDetails(placeId);
+        data = await getPlaceDetails(placeId);
         console.log("🚀 ~ handleItemClick ~ place details:", data);
 
         if (data && data.result && data.result.geometry) {
@@ -31,6 +32,15 @@ const ResultsList = ({ onSelectResult }) => {
       } catch (error) {
         console.error("Error fetching place details:", error);
       }
+    }
+    if (!data) {
+      const location = {
+        location: item.geometry.location,
+        description: locarionName
+      }
+      onSelectResult(location);
+      
+      console.log("🚀 ~ handleItemClick ~ fallback to mock location:", location);
     }
   };
 

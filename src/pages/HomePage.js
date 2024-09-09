@@ -15,7 +15,6 @@ const HomePage = () => {
   const { Content } = Layout;
   const handleSelect = (location) => {
     setSelectedLocations((prevLocations) => [...prevLocations, location.location]);
-    //setSelectedLocation(location.location)
     dispatch(addSelectedResult(location.description));
   };
   return (
